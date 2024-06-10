@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "usuario": "Sebastian Martinez",
+        "fecha": "2021-12-10",
+        "monto": 990,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567890"
+    },
+    {
+        "id": 2,
+        "usuario": "Jose Guaman",
+        "fecha": "2021-10-10",
+        "monto": 100.20,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567890"
+    },
+    {
+        "id": 3,
+        "usuario": "William Chamba",
+        "fecha": "2013-10-10",
+        "monto": 10000,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1234567890"
+    },
+    {
+        "id": 4,
+        "usuario": "Andres Pardo",
+        "fecha": "2005-10-10",
+        "monto": 120.20,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1234567890"
+    },
+    {
+        "id": 5,
+        "usuario": "Rafael Chuquihuanca",
+        "fecha": "1999-10-10",
+        "monto": 100,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567890"
+    },
+    {
+        "id": 6,
+        "usuario": "Diferenciador",
+        "fecha": "2005-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
+    }
+]

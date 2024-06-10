@@ -1,0 +1,36 @@
+{%extends "template.html"%}
+{%block content%}
+<h2 class="text-white">Editar Factura</h2>
+<div class="booking-form-body">
+    <a href="/historial/facturas/ver" class="btn btn-success">VOLVER</a>       
+    <form id="form" class="custom-form booking-form"  action="/facturas/modificar" method="post" role="form">
+        <div class="booking-form-body">
+            <input type="hidden" name="id" value="{{data._id}}"/>
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <input type="text" name="usuario" value="{{data._usuario}}" class="form-control" placeholder="Usuario" required>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <input type="date" name="fecha" value="{{data._fecha}}" class="form-control" placeholder="Fecha" required>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <input type="text" name="monto" value="{{data._monto}}" class="form-control" placeholder="Monto" required>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <select name="tipoRUC" class="form-control" required>
+                        <option value="">Tipo RUC</option>
+                        <option value="EDUCATIVO">EDUCATIVO</option>
+                        <option value="PROFESIONAL">PROFESIONAL</option>
+                    </select>
+                    </div>
+                <div class="col-lg-6 col-12">
+                    <input type="text" name="RUC" value="{{data._RUC}}" class="form-control" placeholder="RUC" required>
+                </div>
+
+                <div class="col-lg-4 col-md-10 col-8 mx-auto mt-2">
+                    <button id="boton" type="submit" class="form-control btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form> 
+{% endblock %}                       

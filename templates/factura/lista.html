@@ -1,0 +1,33 @@
+{% extends "template.html"%}
+{% block content%}
+<h3 class="text-white" style="text-align: center;">Historial de Retenciones</h3>
+<div class="booking-form-body">
+    <a href="/historial/eliminar" class="btn btn-danger">Eliminar Historial</a>
+    <table id="tabla" class="table text-white">
+        <thead>
+            <th>Retencion Nro</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Porcentaje de Retencion</th>
+            <th>Valor Inicial</th>
+            <th>Valor Retenido</th>
+            <th>Monto Final</th>
+        </thead>
+        <tbody>
+            {% for item in lista%}
+            <tr>
+                <td>{{item.id}} </td>
+                <td>{{item.cliente}} </td>
+                <td>{{item.fecha}} </td>
+                <td>{{item.porcentajeRetencion}} </td>
+                <td>{{item.valorInicial}} </td>
+                <td>{{item.retencion}} </td>
+                <td>{{item.valorFinal}} </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table> 
+</div>
+{% endblock %}
+
