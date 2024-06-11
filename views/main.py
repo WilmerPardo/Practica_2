@@ -44,8 +44,8 @@ try:
     ret.process_facturas(fact)
     ret.clear_all_retenciones() """
 
-    for i in range(1000000):
-        listaNumber.add(random.randint(0, 50000))
+    for i in range(10):
+        listaNumber.add(random.randint(0, 11))
 
     listaNumber.add(10)
     #listaNumber.print
@@ -53,8 +53,8 @@ try:
     #listaNumber.sort(1)
     #listaNumber.print
     #listaNumber.binary_search(10, 1) #1 primitivo, 0 string
-    listaAux = listaNumber.binary_search_secuencial(10, 1)
-    print(listaAux)
+    #listaAux = listaNumber.binary_search_secuencial(10, 1)
+    #print(listaAux)
     fin = time.time()
     print("Tiempo de ejecucion: ", fin-inicio)
 
@@ -88,6 +88,8 @@ try:
     #facturita = fact._list().binary_search_models(120.20, '_monto', 1)
     
     #facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2)
+    facturaAux = fact._list().binary_models(200, '_monto', 1)
+    print(facturaAux)
     
 except Exception as e:
     print(f"Error: {e}")

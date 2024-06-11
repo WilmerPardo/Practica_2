@@ -349,3 +349,16 @@ class Linked_List(object):
                 return search.binary_primitive_secuencial(array, data, 0, len(array) - 1) 
             #elif type == 2:
                 #return search.binary_primitive_secuencial(array, data)
+
+    def binary_models(self, data, attribute, type = 1):
+        array = self.toArray
+        order = QuickSort()
+        array = order.sort_models_ascendent(array, attribute)
+        if self.isEmpty:
+            raise LinkedEmptyException("List empty")
+        else:
+            search = BinarySecuencial()
+            if type == 1:
+                return search.binary_models_secuencial(array, data, 0, len(array)-1, attribute)
+            #elif type == 2:
+                #return search.binary_models_string(array, data, 0, len(array) - 1, attribute)

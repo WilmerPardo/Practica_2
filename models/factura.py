@@ -79,4 +79,4 @@ class Factura:
     def __str__(self) -> str:
         return "Usuario: " + self._usuario + " " + self._fecha + " Monto:" + str(self._monto)
     
-    
+    __repr__ = __str__

@@ -46,5 +46,21 @@
         "monto": 200,
         "tipoRUC": "PROFESIONAL",
         "RUC": "1105526436"
+    },
+    {
+        "id": 7,
+        "usuario": "Santos Jesus",
+        "fecha": "2005-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
+    },
+    {
+        "id": 8,
+        "usuario": "Sara Coronel",
+        "fecha": "2005-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
     }
 ]
