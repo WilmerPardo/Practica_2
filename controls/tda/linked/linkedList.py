@@ -359,6 +359,8 @@ class Linked_List(object):
         else:
             search = BinarySecuencial()
             if type == 1:
-                return search.binary_models_secuencial(array, data, 0, len(array)-1, attribute)
+                arraySort = search.binary_models_secuencial(array, data, 0, len(array)-1, attribute)
+                self.toList((arraySort))
+                return self
             #elif type == 2:
                 #return search.binary_models_string(array, data, 0, len(array) - 1, attribute)
