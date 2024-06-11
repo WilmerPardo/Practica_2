@@ -41,7 +41,7 @@ def guardar_factura():
     factura = FacturaDaoControl()
     factura._factura._usuario = request.form['usuario']
     factura._factura._fecha = request.form['fecha']
-    factura._factura._monto = request.form['monto']
+    factura._factura._monto = float(request.form['monto'])
     factura._factura._tipoRUC = request.form['tipoRUC']
     factura._factura._RUC = request.form['RUC']
     factura.save

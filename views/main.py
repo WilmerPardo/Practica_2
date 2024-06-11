@@ -81,7 +81,7 @@ try:
     
     
     #fact._list().print
-    #listaAux = fact._list().sort_models('_usuario', 1) 
+    #listaAux = fact._list().sort_models('_fecha', 1) 
     #listaAux.print
 
     #fact._list().sort_models('_usuario', 1).print
