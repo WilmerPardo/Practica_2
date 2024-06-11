@@ -1,23 +1,14 @@
-from controls.tda.linked.linkedList import Linked_List
-from controls.tda.linked.search.binary import Binary
-
-class BinarySecuencial(Binary):
-    def binary_ascendent(self, array, data, low, high, positions=None):
-        if positions is None:
-            positions = Linked_List()
-
-        mid = super().binary_ascendent(array, data, low, high)
-        if mid != -1:
-            positions.add(mid)
-
-        return positions
-
-    def binary_descendent(self, array, data, low, high, positions=None):
-        if positions is None:
-            positions = Linked_List()
-
-        mid = super().binary_descendent(array, data, low, high)
-        if mid != -1:
-            positions.add(mid)
-
-        return positions
+class BinarySecuencial():
+    def binary_primitive_secuencial(self, array, data, low, high):
+        if low > high:
+            return []
+        mid = (low + high) // 2
+        result = []
+        if array[mid] == data:
+            result.append(array[mid])
+        if mid + 1 <= high:
+            result += self.binary_primitive_secuencial(array, data, mid + 1, high)
+        if mid - 1 >= low:
+            result += self.binary_primitive_secuencial(array, data, low, mid - 1)
+        return result
+            #return self.binary_primitive_secuencial(array, data, low, mid - 1)

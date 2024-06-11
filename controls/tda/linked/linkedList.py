@@ -9,6 +9,7 @@ from controls.tda.linked.order.quickSort import QuickSort
 from controls.tda.linked.order.mergeSort import MergeSort
 from controls.tda.linked.search.binary import Binary
 from controls.tda.linked.order.shellSort import ShellSort
+from controls.tda.linked.search.binarySecuencial import BinarySecuencial
 
 #from controls.tda.linked.search.binarySecuencial import BinarySecuencial
 
@@ -305,7 +306,7 @@ class Linked_List(object):
                     list.add(array[i], list._length)
         return list
     
-    def binary_search(self, data, type = 2):
+    def binary_search(self, data, type):
         array = self.toArray
         order = QuickSort()
         array = order.sort_primitive_ascendent(array)
@@ -315,7 +316,7 @@ class Linked_List(object):
         else:
             search = Binary()
             if type == 0:
-                print(array)
+                #print(array) imprime la lista ordenada
                 return search.binary_string(array, data, 0, len(array) - 1)
             elif type == 1:
                 return search.binary_primitive(array, data, 0, len(array) - 1)  
@@ -333,3 +334,18 @@ class Linked_List(object):
                 return search.search_binary_models(array, data, attribute, 0, len(array) - 1)
             elif type == 2:
                 return search.search_binary_models_string(array, data, attribute, 0, len(array) - 1)
+            
+    def binary_search_secuencial(self, data, type = 1):
+        array = self.toArray
+        order = QuickSort()
+        array = order.sort_primitive_ascendent(array)
+        if self.isEmpty:
+            raise LinkedEmptyException("List empty")
+        else:
+            search = BinarySecuencial()
+            if type == 1:
+                #array = search.binary_primitive_secuencial(array, data, 0, len(array) - 1)
+                #print(array)
+                return search.binary_primitive_secuencial(array, data, 0, len(array) - 1) 
+            #elif type == 2:
+                #return search.binary_primitive_secuencial(array, data)
