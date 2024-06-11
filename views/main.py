@@ -87,7 +87,7 @@ try:
     #fact._list().sort_models('_usuario', 1).print
     #facturita = fact._list().binary_search_models(120.20, '_monto', 1)
     
-    #facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2)
+    facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2)
     facturaAux = fact._list().binary_models(200, '_monto', 1)
     print(facturaAux)
     

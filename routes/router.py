@@ -82,3 +82,26 @@ def modificar_personas():
     #pd._persona._tipoIdentificacion = data['tipo']
     fd.merge(int(pos))
     return redirect("/historial/facturas/ver", code=302)
+
+#ordenar facturas
+@router.route('/historial/ordenar')
+def ordenar_historial():
+    campo_orden = request.args.get('campo', default='_fecha', type=str)
+    direccion = request.args.get('direccion', default=1, type=int)
+    factura = FacturaDaoControl()
+    linked_list = factura._list().sort_models(campo_orden, direccion)
+    lista_ordenada = linked_list.toArray
+    return render_template('factura/ordenar.html', lista = lista_ordenada)
+
+#buscar facturas
+@router.route('/historial/buscar', methods=['GET', 'POST'])
+def buscar_factura():
+    if request.method == 'POST':
+        campo = request.form.get('select-campo')
+        valor = request.form.get('input-campo')
+        fact = FacturaDaoControl()
+
+        facturas1 = fact._list().binary_models(valor, campo)
+        return render_template('factura/buscar.html', facturas=facturas1, code=302)
+    else:
+        return render_template('factura/buscar.html')

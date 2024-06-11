@@ -1,0 +1,66 @@
+{% extends "template.html"%}
+{% block content%}
+<h3 class = "text-white" >Busqueda</h3>
+<div class="booking-form-body">
+    <h4 class="text-white">Cómo desea buscar?</h4>
+    <form method="post" action="/historial/buscar">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <select id="select-campo" name="select-campo" class="form-select" aria-label="Opciones de ordenamiento">
+                        <option value="_usuario">Usuario</option>
+                        <option value="_fecha">Fecha</option>
+                        <option value="_monto">Monto</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input id="input-campo" name="input-campo" type="text" class="form-control" placeholder="Jose Guaman" required>
+                </div>
+            </div>
+            <button class="btn btn-warning" type="submit">BUSCAR</button>
+        </div>
+    </form>
+    
+    <script>
+    document.getElementById('select-campo').addEventListener('change', function() {
+        var inputCampo = document.getElementById('input-campo');
+        switch (this.value) {
+            case '_usuario':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = 'Jose Guaman';
+                break;
+            case '_fecha':
+                inputCampo.type = 'date';
+                inputCampo.placeholder = '';
+                break;
+            case '_monto':
+                inputCampo.type = 'number';
+                inputCampo.placeholder = '100.65';
+                break;
+        }
+    });
+    </script>
+    <table id="tabla" class="table text-white">
+        <thead>
+            <th>Factura Nro</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Tipo RUC</th>
+            <th>RUC</th>
+        </thead>
+        <tbody>
+            {% for factura in facturas %}
+            <tr>
+                <td>{{ factura.id }}</td>
+                <td>{{ factura.usuario }}</td>
+                <td>{{ factura.fecha }}</td>
+                <td>{{ factura.monto }}</td>
+                <td>{{ factura.tipoRUC }}</td>
+                <td>{{ factura.RUC }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+</div>
+{% endblock %}
