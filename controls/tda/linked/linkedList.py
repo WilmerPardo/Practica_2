@@ -327,19 +327,7 @@ class Linked_List(object):
             elif type == 1:
                 return search.binary_primitive(array, data, 0, len(array) - 1)  
             
-    def binary_search_models(self, data, attribute, type = 1):
-        array = self.toArray
-        #order = QuickSort()
-        order = ShellSort()
-        array = order.sort_models_ascendent(array, attribute)
-        if self.isEmpty:
-            raise LinkedEmptyException("List empty")
-        else:
-            search = Binary()
-            if type == 1:
-                return search.search_binary_models(array, data, attribute, 0, len(array) - 1)
-            elif type == 2:
-                return search.search_binary_models_string(array, data, attribute, 0, len(array) - 1)
+    
             
     def binary_search_secuencial(self, data, type = 1):
         array = self.toArray
@@ -355,7 +343,21 @@ class Linked_List(object):
                 return search.binary_primitive_secuencial(array, data, 0, len(array) - 1) 
             #elif type == 2:
                 #return search.binary_primitive_secuencial(array, data)
-
+                
+    def binary_search_models(self, data, attribute, type = 1):
+        array = self.toArray
+        #order = QuickSort()
+        order = ShellSort()
+        array = order.sort_models_ascendent(array, attribute)
+        if self.isEmpty:
+            raise LinkedEmptyException("List empty")
+        else:
+            search = Binary()
+            if type == 1:
+                return search.search_binary_models(array, data, attribute, 0, len(array) - 1)
+            elif type == 2:
+                return search.search_binary_models_string(array, data, attribute, 0, len(array) - 1)
+            
     def binary_models(self, data, attribute, type = 1):
         array = self.toArray
         order = QuickSort()

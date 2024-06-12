@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "usuario": "Diferenciador",
+        "usuario": "Eberson Guachizaca",
         "fecha": "2005-08-08",
         "monto": 200,
         "tipoRUC": "PROFESIONAL",
@@ -71,5 +71,13 @@
         "monto": 200,
         "tipoRUC": "PROFESIONAL",
         "RUC": "1105526436"
+    },
+    {
+        "id": 10,
+        "usuario": "Bradley Poma",
+        "fecha": "2008-10-10",
+        "monto": 100,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567890"
     }
 ]
