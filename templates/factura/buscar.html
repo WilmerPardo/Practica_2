@@ -1,8 +1,10 @@
 {% extends "template.html"%}
 {% block content%}
-<h3 class = "text-white" >Busqueda</h3>
+<h2 class = "text-white" >Busqueda</h2>
 <div class="booking-form-body">
-    <h4 class="text-white">Cómo desea buscar?</h4>
+    <div class="text-center w-100">
+        <h4 class="text-white">Cómo desea buscar?</h4>
+    </div>
     <form method="post" action="/historial/buscar">
         <div class="d-grid gap-2 col-6 mx-auto">
             <div class="row">
@@ -20,7 +22,7 @@
             <button class="btn btn-warning" type="submit">BUSCAR</button>
         </div>
     </form>
-    
+    <h6 class="text-white">{{ mensaje }}</h6>
     <script>
     document.getElementById('select-campo').addEventListener('change', function() {
         var inputCampo = document.getElementById('input-campo');
@@ -52,12 +54,12 @@
         <tbody>
             {% for factura in facturas %}
             <tr>
-                <td>{{ factura.id }}</td>
-                <td>{{ factura.usuario }}</td>
-                <td>{{ factura.fecha }}</td>
-                <td>{{ factura.monto }}</td>
-                <td>{{ factura.tipoRUC }}</td>
-                <td>{{ factura.RUC }}</td>
+                <td>{{ factura._id }}</td>
+                <td>{{ factura._usuario }}</td>
+                <td>{{ factura._fecha }}</td>
+                <td>{{ factura._monto }}</td>
+                <td>{{ factura._tipoRUC }}</td>
+                <td>{{ factura._RUC }}</td>
             </tr>
             {% endfor %}
         </tbody>

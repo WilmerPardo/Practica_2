@@ -97,11 +97,23 @@ def ordenar_historial():
 @router.route('/historial/buscar', methods=['GET', 'POST'])
 def buscar_factura():
     if request.method == 'POST':
-        campo = request.form.get('select-campo')
-        valor = request.form.get('input-campo')
+        data = request.form
+        campo = data['select-campo'] #request.form.get('select-campo')
+        valor = data['input-campo']
+        if campo == '_monto':
+            valor = float(valor)
         fact = FacturaDaoControl()
-
         facturas1 = fact._list().binary_models(valor, campo)
-        return render_template('factura/buscar.html', facturas=facturas1, code=302)
+        if facturas1 is not None and facturas1._length > 0:
+            mensaje = f'Facturas correspondientes a "{valor}":'
+        else:
+            if campo == '_monto':
+                mensaje = f'No se ha encontrado facturas con el monto de "{valor}"'
+            elif campo == '_fecha':
+                mensaje = f'No se ha encontrado facturas con la fecha de "{valor}"'
+            else:
+                mensaje = f'No se ha encontrado facturas con el usuario "{valor}"'
+                
+        return render_template('factura/buscar.html', facturas = facturas1, code=302, mensaje = mensaje)
     else:
         return render_template('factura/buscar.html')

@@ -63,4 +63,13 @@
         "tipoRUC": "PROFESIONAL",
         "RUC": "1105526436"
     }
+    ,
+    {
+        "id": 9,
+        "usuario": "Jose Guaman",
+        "fecha": "2003-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
+    }
 ]

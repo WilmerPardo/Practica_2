@@ -19,6 +19,12 @@ class Linked_List(object):
         self.__last = None
         self.__length = 0
 
+    def __iter__(self):
+        node = self._head  # assuming 'head' is the name of the attribute pointing to the first node
+        while node is not None:
+            yield node._data  # assuming 'data' is the name of the attribute storing node data
+            node = node._next  # assuming 'next' is the name of the attribute pointing to the next node
+
     @property
     def _head(self):
         return self.__head
