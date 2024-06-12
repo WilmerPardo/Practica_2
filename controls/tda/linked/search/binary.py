@@ -124,12 +124,15 @@ class Binary:
         if (getattr(array[mid], attribute)) == (element):
             print(f"Valor encontrado en la posicion: {mid}")
             print(array[mid])
+            return array[mid]
         elif mid > 0 and (getattr(array[mid-1], attribute)) == (element):
             print(f"Valor encontrado en la posicion +1: {mid-1}")
             print(array[mid-1])
+            return array[mid-1]
         elif mid < len(array) - 1 and (getattr(array[mid+1], attribute)) == (element):
             print(f"Valor encontrado en la posicion -1: {mid+1}")
             print(array[mid+1])
+            return array[mid+1]
         elif (getattr(array[mid], attribute)) < (element):
             return self.search_binary_models_string(array, (element), attribute, mid + 1, high)
         else:
