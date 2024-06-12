@@ -355,8 +355,12 @@ class Linked_List(object):
             search = Binary()
             if type == 1:
                 return search.search_binary_models(array, data, attribute, 0, len(array) - 1)
+                #self.toList((arraySort))
             elif type == 2:
                 return search.search_binary_models_string(array, data, attribute, 0, len(array) - 1)
+        
+        #return self
+
             
     def binary_models(self, data, attribute, type = 1):
         array = self.toArray

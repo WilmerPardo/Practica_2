@@ -103,7 +103,10 @@ def buscar_factura():
         if campo == '_monto':
             valor = float(valor)
         fact = FacturaDaoControl()
-        facturas1 = fact._list().binary_models(valor, campo)
+        if campo == '_RUC':
+            facturas1 = fact._list().binary_search_models(valor, campo)
+        else:
+            facturas1 = fact._list().binary_models(valor, campo)
         if facturas1 is not None and facturas1._length > 0:
             mensaje = f'Facturas correspondientes a "{valor}":'
         else:

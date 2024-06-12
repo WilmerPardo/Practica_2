@@ -13,6 +13,7 @@
                         <option value="_usuario">Usuario</option>
                         <option value="_fecha">Fecha</option>
                         <option value="_monto">Monto</option>
+                        <option value="_RUC">RUC</option>
                     </select>
                 </div>
                 <div class="col">
@@ -38,6 +39,10 @@
             case '_monto':
                 inputCampo.type = 'number';
                 inputCampo.placeholder = '100.65';
+                break;
+            case '_RUC':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = '1103526893001';
                 break;
         }
     });
