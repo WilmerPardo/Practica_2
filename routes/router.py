@@ -105,19 +105,23 @@ def buscar_factura():
         fact = FacturaDaoControl()
         if campo == '_RUC':
             factura = fact._list().binary_search_models(valor, campo,2)
-            facturas1 = [factura]#print(facturas1._length)
+            facturas1 = [factura]
+            print((facturas1)== None)
+            #facturas1 = [factura]#print(facturas1._length)
         else:
             facturas1 = fact._list().binary_models(valor, campo)
-        if facturas1 is not None:# and facturas1._length > 0:
-            mensaje = f'Facturas correspondientes a "{valor}":'
-        else:
-            if campo == '_monto':
-                mensaje = f'No se ha encontrado facturas con el monto de "{valor}"'
-            elif campo == '_fecha':
-                mensaje = f'No se ha encontrado facturas con la fecha de "{valor}"'
+        if campo != '_RUC':
+            if facturas1 is not None and facturas1._length > 0 :
+                mensaje = f'Facturas correspondientes a "{valor}":'
             else:
-                mensaje = f'No se ha encontrado facturas con el usuario "{valor}"'
-                
+                if campo == '_monto':
+                    mensaje = f'No se ha encontrado facturas con el monto de "{valor}"'
+                elif campo == '_fecha':
+                    mensaje = f'No se ha encontrado facturas con la fecha de "{valor}"'
+                else: 
+                    mensaje = f'No se ha encontrado facturas con el usuario "{valor}"'
+        else:
+            mensaje = f'Facturas correspondientes a "{valor}:"'
         return render_template('factura/buscar.html', facturas = facturas1, code=302, mensaje = mensaje)
     else:
         return render_template('factura/buscar.html')
