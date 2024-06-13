@@ -2,7 +2,6 @@ class ShellSort:
     def sort_primitive_ascendent(self, arr):
         n = len(arr)
         gap = n // 2
-
         while gap > 0:
             for i in range(gap, n):
                 temp = arr[i]
