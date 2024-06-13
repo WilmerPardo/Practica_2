@@ -16,6 +16,7 @@ def ver_facturas():
     return render_template('factura/listaFacturas.html', lista = factura.to_dic())
 
 
+
 @router.route('/historial')
 def lista_historial():
     retencion = RetencionDaoControl()
@@ -86,12 +87,21 @@ def modificar_personas():
 #ordenar facturas
 @router.route('/historial/ordenar')
 def ordenar_historial():
+    # Obtener parámetros de ordenación desde la solicitud
     campo_orden = request.args.get('campo', default='_fecha', type=str)
     direccion = request.args.get('direccion', default=1, type=int)
+    algoritmo = request.args.get('algoritmo', default=1, type=int)
+    
+    # Obtener el controlador de facturas
     factura = FacturaDaoControl()
-    linked_list = factura._list().sort_models(campo_orden, direccion)
+    
+    # Ordenar la lista de facturas según los parámetros
+    linked_list = factura._list().sort_models(campo_orden, direccion, algoritmo)
     lista_ordenada = linked_list.toArray
-    return render_template('factura/ordenar.html', lista = lista_ordenada)
+    print(lista_ordenada)
+    
+    # Renderizar la plantilla con la lista ordenada
+    return render_template('factura/ordenar.html', lista=lista_ordenada)
 
 #buscar facturas
 @router.route('/historial/buscar', methods=['GET', 'POST'])

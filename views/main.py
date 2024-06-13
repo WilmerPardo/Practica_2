@@ -50,7 +50,7 @@ try:
     listaNumber.add(10)
     #listaNumber.print
     inicio = time.time()
-    #listaNumber.sort(1)
+    listaNumber.sort(1)
     #listaNumber.print
     #listaNumber.binary_search(10, 1) #1 primitivo, 0 string
     #listaAux = listaNumber.binary_search_secuencial(10, 1)
@@ -81,14 +81,14 @@ try:
     
     
     #fact._list().print
-    #listaAux = fact._list().sort_models('_fecha', 1) 
+    listaAux = fact._list().sort_models('_monto', 1, 0) 
     #listaAux.print
     #fact._list().sort_models('_usuario', 1).print
-    #facturita = fact._list().binary_search_models(120.20, '_monto', 1)
-    
-    facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2)
-    facturaAux = fact._list().binary_models(200, '_monto', 1)
-    print(facturaAux)
+
+    #facturita = fact._list().binary_search_models(120.20, '_monto', 1) 
+    #facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2) #busqueda binaria
+    #facturaAux = fact._list().binary_models(200, '_monto', 1) #binaria secuencial
+    #print(facturaAux)
     
 except Exception as e:
     print(f"Error: {e}")

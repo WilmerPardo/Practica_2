@@ -232,19 +232,22 @@ class Linked_List(object):
         for i in range(0, len(array)):
             self.__addLast__(array[i])
 
-    def sort(self, type):
+    def sort(self, type, typeSort = 1):
         if self.isEmpty:
             raise LinkedEmptyException("List empty")
         else:
             array = self.toArray
             #solo datos primitivos
             if isinstance(array[0], Number) or isinstance(array[0], str):
-                #order = Burbuja()
-                #order = Insersion()
-                #order = Seleccion()
-                order = QuickSort()
-                #order = MergeSort()
-                #order = ShellSort()
+                if typeSort == 1:
+                    #order = Burbuja()
+                    #order = Insersion()
+                    #order = Seleccion()
+                    order = QuickSort()
+                elif typeSort == 2:
+                    order = MergeSort()
+                else:
+                    order = ShellSort()
                 if type == 1:
                     #array = order.sort_burbuja_number_ascendent(array)
                     array = order.sort_primitive_ascendent(array)
@@ -253,18 +256,21 @@ class Linked_List(object):
                     array = order.sort_primitive_descendent(array)
             self.toList(array)
 
-    def sort_models(self, attribute, type = 1):
+    def sort_models(self, attribute, type = 1, typeSort = 1):
             if self.isEmpty:
                 raise LinkedEmptyException("List empty")
             else:
                 array = self.toArray
                 if isinstance(array[0], object):
+                    if typeSort == 1:
                     #order = Burbuja()
                     #order = Insersion()
                     #order = Seleccion()
-                    #order = QuickSort()
-                    order = MergeSort()
-                    #order = ShellSort()
+                        order = QuickSort()
+                    elif typeSort == 2:
+                        order = MergeSort()
+                    else:
+                        order = ShellSort()
                     if type == 1:
                         #array = order.sort_burbuja_attribute_ascendent(array, attribute)
                         array = order.sort_models_ascendent(array, attribute)
@@ -273,28 +279,6 @@ class Linked_List(object):
                         array = order.sort_models_descendent(array, attribute)
                     #cls = getattr(array[0], '_apellidos')
                     #print(cls)
-                self.toList(array)
-            return self
-
-    
-    #TODO: ordenar fechas
-    def sort_dates(self, date_format, type = 1):
-            if self.isEmpty:
-                raise LinkedEmptyException("List empty")
-            else:
-                array = self.toArray
-                if isinstance(array[0], object):
-                    #order = Burbuja()
-                    order = Insersion()
-                    #order = Seleccion()
-                    #order = QuickSort()
-                    #order = MergeSort()
-                    if type == 1:
-                        #array = order.sort_burbuja_date_ascendent(array, date_format)
-                        array = order.sort_dates_ascendent(array, date_format)
-                    else:
-                        #array = order.sort_burbuja_date_descendent(array, date_format)
-                        array = order.sort_dates_descendent(array, date_format)
                 self.toList(array)
             return self
     
