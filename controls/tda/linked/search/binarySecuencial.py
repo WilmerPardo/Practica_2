@@ -11,7 +11,7 @@ class BinarySecuencial():
             result += self.binary_primitive_secuencial(array, data, mid + 1, high)
         if mid - 1 >= low:
             result += self.binary_primitive_secuencial(array, data, low, mid - 1)
-        return result
+        return result 
 
 
     def binary_models_secuencial(self, array, data, low, high, attribute):

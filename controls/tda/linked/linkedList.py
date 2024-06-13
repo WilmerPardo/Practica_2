@@ -296,17 +296,17 @@ class Linked_List(object):
                     list.add(array[i], list._length)
         return list
     
-    def binary_search(self, data, type):
+    def binary_search(self, data, type = 1):
         array = self.toArray
         order = QuickSort()
         array = order.sort_primitive_ascendent(array)
+        #print(array)
         #print(len(array))
         if self.isEmpty:
             raise LinkedEmptyException("List empty")
         else:
             search = Binary()
             if type == 0:
-                #print(array) imprime la lista ordenada
                 return search.binary_string(array, data, 0, len(array) - 1)
             elif type == 1:
                 return search.binary_primitive(array, data, 0, len(array) - 1)  

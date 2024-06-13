@@ -14,10 +14,11 @@
                         <option value="_fecha">Fecha</option>
                         <option value="_monto">Monto</option>
                         <option value="_RUC">RUC</option>
+                        <option value="_tipoRUC">Tipo Ruc</option>
                     </select>
                 </div>
                 <div class="col">
-                    <input id="input-campo" name="input-campo" type="text" class="form-control" placeholder="Jose Guaman" required>
+                    <input id="input-campo" name="input-campo" type="text" class="form-control" placeholder="Wilmer Pardo" required>
                 </div>
             </div>
             <button class="btn btn-warning" type="submit">BUSCAR</button>
@@ -43,6 +44,10 @@
             case '_RUC':
                 inputCampo.type = 'text';
                 inputCampo.placeholder = '1103526893001';
+                break;
+            case '_tipoRUC':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = 'EDUCATIVO o PROFESIONAL';
                 break;
         }
     });

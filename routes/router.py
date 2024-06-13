@@ -107,6 +107,10 @@ def buscar_factura():
         if campo == '_monto':
             valor = float(valor)
         fact = FacturaDaoControl()
+
+        if campo == '_tipoRUC':
+            valor = valor.upper()
+
         if campo == '_RUC':
             factura = fact._list().binary_search_models(valor, campo,2)
             facturas1 = [factura]
@@ -122,6 +126,8 @@ def buscar_factura():
                     mensaje = f'No se ha encontrado facturas con el monto de "{valor}"'
                 elif campo == '_fecha':
                     mensaje = f'No se ha encontrado facturas con la fecha de "{valor}"'
+                elif campo == '_tipoRUC':
+                    mensaje = f'Solo existe el tipo Educativo y Profesional"'
                 else: 
                     mensaje = f'No se ha encontrado facturas con el usuario "{valor}"'
         else:

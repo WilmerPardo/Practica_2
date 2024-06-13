@@ -44,17 +44,14 @@ try:
     ret.process_facturas(fact)
     ret.clear_all_retenciones() """
 
-    for i in range(25000):
-        listaNumber.add(random.randint(0,1000000))
+    for i in range(10):
+        listaNumber.add(random.randint(0,100000))
 
-    listaNumber.add(10)
+    #listaNumber.add(1995.19)
+    #listaNumber.add(1995.19)
     #listaNumber.print
     inicio = time.time()
     listaNumber.sort(1,0)
-    #listaNumber.print
-    #listaNumber.binary_search(10, 1) #1 primitivo, 0 string
-    #listaAux = listaNumber.binary_search_secuencial(10, 1)
-    #print(listaAux)
     fin = time.time()
     print("Tiempo de ejecucion: ", fin-inicio)
 
