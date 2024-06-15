@@ -46,16 +46,13 @@ class MergeSort:
                     buffer[i] = nums[right]
                     right += 1
             i += 1
-
         while left <= mid:
             buffer[i] = nums[left]
             left += 1
             i += 1
-
         while right <= last:
             buffer[i] = nums[right]
             right += 1
             i += 1
-
         for j in range(start, last + 1):
             nums[j] = buffer[j]

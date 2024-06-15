@@ -12,7 +12,6 @@ listaString = Linked_List()
 try:
     fact = FacturaDaoControl()
     ret = RetencionDaoControl()
-
     """ fact._factura._usuario = "Juan"
     fact._factura._fecha = "2021-10-10"
     fact._factura._monto = 100
@@ -44,16 +43,19 @@ try:
     ret.process_facturas(fact)
     ret.clear_all_retenciones() """
 
-    for i in range(10000):
-        listaNumber.add(random.randint(0,100000))
+    for i in range(20):
+        listaNumber.add(random.randint(0,1000))
 
-    #listaNumber.add(1995.19)
-    #listaNumber.add(1995.19)
+    listaNumber.add(350.19)
+    listaNumber.add(1995.19)
+    listaNumber.add(1995.19)
     #listaNumber.print
     inicio = time.time()
-    listaNumber.sort(1,0)
+    #listaNumber.sort(1,1)
+    #listaNumber.print
     fin = time.time()
-    #listaAux = listaNumber.binary_search(1995.19, 1)
+    #listaBinary = listaNumber.binary_search(350.19, 1)
+    #listaAux = listaNumber.binary_search_secuencial(1995.19, 1)
     #print(listaAux)
     print("Tiempo de ejecucion: ", fin-inicio)
 
@@ -68,26 +70,27 @@ try:
     listaString.add("Ximena Yanayaco")
     listaString.add("Ximena Yanayaco")
     
-    listaAuxx = listaString.binary_search_secuencial("Ximena Yanayaco", 1)
+    #listaAuxx = listaString.binary_search_secuencial("Ximena Yanayaco", 1)
     #print(listaAuxx)
     #listaString.print
-    listaString.sort(1)
+    listaString.sort(1, 2)
     #listaAuxStr = listaString.search_equals("ez")
     #listaAuxStr.print
     #listaString.print
-    #listaString.binary_search("ez", 0)
+    #listaAuxs = listaString.binary_search("ez", 0)
 
     
     
     #fact._list().print
-    listaAux = fact._list().sort_models('_monto', 1, 0) 
+    #listaAux = fact._list().sort_models('_fecha', 1, 0) 
     #listaAux.print
+
     #fact._list().sort_models('_usuario', 1).print
 
     #facturita = fact._list().binary_search_models(120.20, '_monto', 1) 
-    #facturota = fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2) #busqueda binaria
-    #facturaAux = fact._list().binary_models(200, '_monto', 1) #binaria secuencial
-    #print(facturaAux)
+    #fact._list().binary_search_models('Rafael Chuquihuanca', '_usuario', 2) #busqueda binaria
+    facturaAux = fact._list().binary_models(200, '_monto', 1) #binaria secuencial
+    print(facturaAux)
     
 except Exception as e:
     print(f"Error: {e}")
