@@ -9,6 +9,7 @@ from controls.tda.linked.order.quickSort import QuickSort
 from controls.tda.linked.order.mergeSort import MergeSort
 from controls.tda.linked.search.binary import Binary
 from controls.tda.linked.order.shellSort import ShellSort
+from controls.tda.linked.search.binarySecuencial import BinarySecuencial
 
 #from controls.tda.linked.search.binarySecuencial import BinarySecuencial
 
@@ -17,6 +18,12 @@ class Linked_List(object):
         self.__head = None
         self.__last = None
         self.__length = 0
+
+    def __iter__(self):
+        node = self._head  # assuming 'head' is the name of the attribute pointing to the first node
+        while node is not None:
+            yield node._data  # assuming 'data' is the name of the attribute storing node data
+            node = node._next  # assuming 'next' is the name of the attribute pointing to the next node
 
     @property
     def _head(self):
@@ -225,19 +232,22 @@ class Linked_List(object):
         for i in range(0, len(array)):
             self.__addLast__(array[i])
 
-    def sort(self, type):
+    def sort(self, type, typeSort = 1):
         if self.isEmpty:
             raise LinkedEmptyException("List empty")
         else:
             array = self.toArray
             #solo datos primitivos
             if isinstance(array[0], Number) or isinstance(array[0], str):
-                #order = Burbuja()
-                #order = Insersion()
-                #order = Seleccion()
-                order = QuickSort()
-                #order = MergeSort()
-                #order = ShellSort()
+                if typeSort == 1:
+                    #order = Burbuja()
+                    #order = Insersion()
+                    #order = Seleccion()
+                    order = QuickSort()
+                elif typeSort == 2:
+                    order = MergeSort()
+                else:
+                    order = ShellSort()
                 if type == 1:
                     #array = order.sort_burbuja_number_ascendent(array)
                     array = order.sort_primitive_ascendent(array)
@@ -246,18 +256,21 @@ class Linked_List(object):
                     array = order.sort_primitive_descendent(array)
             self.toList(array)
 
-    def sort_models(self, attribute, type = 1):
+    def sort_models(self, attribute, type = 1, typeSort = 1):
             if self.isEmpty:
                 raise LinkedEmptyException("List empty")
             else:
                 array = self.toArray
                 if isinstance(array[0], object):
+                    if typeSort == 1:
                     #order = Burbuja()
                     #order = Insersion()
                     #order = Seleccion()
-                    #order = QuickSort()
-                    order = MergeSort()
-                    #order = ShellSort()
+                        order = QuickSort()
+                    elif typeSort == 2:
+                        order = MergeSort()
+                    else:
+                        order = ShellSort()
                     if type == 1:
                         #array = order.sort_burbuja_attribute_ascendent(array, attribute)
                         array = order.sort_models_ascendent(array, attribute)
@@ -266,28 +279,6 @@ class Linked_List(object):
                         array = order.sort_models_descendent(array, attribute)
                     #cls = getattr(array[0], '_apellidos')
                     #print(cls)
-                self.toList(array)
-            return self
-
-    
-    #TODO: ordenar fechas
-    def sort_dates(self, date_format, type = 1):
-            if self.isEmpty:
-                raise LinkedEmptyException("List empty")
-            else:
-                array = self.toArray
-                if isinstance(array[0], object):
-                    #order = Burbuja()
-                    order = Insersion()
-                    #order = Seleccion()
-                    #order = QuickSort()
-                    #order = MergeSort()
-                    if type == 1:
-                        #array = order.sort_burbuja_date_ascendent(array, date_format)
-                        array = order.sort_dates_ascendent(array, date_format)
-                    else:
-                        #array = order.sort_burbuja_date_descendent(array, date_format)
-                        array = order.sort_dates_descendent(array, date_format)
                 self.toList(array)
             return self
     
@@ -305,21 +296,38 @@ class Linked_List(object):
                     list.add(array[i], list._length)
         return list
     
-    def binary_search(self, data, type = 2):
+    def binary_search(self, data, type = 1):
         array = self.toArray
         order = QuickSort()
         array = order.sort_primitive_ascendent(array)
+        #print(array)
         #print(len(array))
         if self.isEmpty:
             raise LinkedEmptyException("List empty")
         else:
             search = Binary()
             if type == 0:
-                print(array)
                 return search.binary_string(array, data, 0, len(array) - 1)
             elif type == 1:
                 return search.binary_primitive(array, data, 0, len(array) - 1)  
             
+    
+            
+    def binary_search_secuencial(self, data, type = 1):
+        array = self.toArray
+        order = QuickSort()
+        array = order.sort_primitive_ascendent(array)
+        if self.isEmpty:
+            raise LinkedEmptyException("List empty")
+        else:
+            search = BinarySecuencial()
+            if type == 1:
+                #array = search.binary_primitive_secuencial(array, data, 0, len(array) - 1)
+                #print(array)
+                return search.binary_primitive_secuencial(array, data, 0, len(array) - 1) 
+            #elif type == 2:
+                #return search.binary_primitive_secuencial(array, data)
+                
     def binary_search_models(self, data, attribute, type = 1):
         array = self.toArray
         #order = QuickSort()
@@ -331,5 +339,24 @@ class Linked_List(object):
             search = Binary()
             if type == 1:
                 return search.search_binary_models(array, data, attribute, 0, len(array) - 1)
+                #self.toList((arraySort))
             elif type == 2:
                 return search.search_binary_models_string(array, data, attribute, 0, len(array) - 1)
+        
+        #return self
+
+            
+    def binary_models(self, data, attribute, type = 1):
+        array = self.toArray
+        order = QuickSort()
+        array = order.sort_models_ascendent(array, attribute)
+        if self.isEmpty:
+            raise LinkedEmptyException("List empty")
+        else:
+            search = BinarySecuencial()
+            if type == 1:
+                arraySort = search.binary_models_secuencial(array, data, 0, len(array)-1, attribute)
+                self.toList((arraySort))
+            return self
+            #elif type == 2:
+                #return search.binary_models_string(array, data, 0, len(array) - 1, attribute)

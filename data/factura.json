@@ -2,7 +2,7 @@
     {
         "id": 1,
         "usuario": "Sebastian Martinez",
-        "fecha": "2021-12-10",
+        "fecha": "2022-12-10",
         "monto": 990,
         "tipoRUC": "EDUCATIVO",
         "RUC": "1234567890"
@@ -11,7 +11,7 @@
         "id": 2,
         "usuario": "Jose Guaman",
         "fecha": "2021-10-10",
-        "monto": 100.20,
+        "monto": 100.2,
         "tipoRUC": "EDUCATIVO",
         "RUC": "1234567890"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "usuario": "Andres Pardo",
         "fecha": "2005-10-10",
-        "monto": 120.20,
+        "monto": 120.2,
         "tipoRUC": "PROFESIONAL",
         "RUC": "1234567890"
     },
@@ -41,10 +41,123 @@
     },
     {
         "id": 6,
-        "usuario": "Diferenciador",
+        "usuario": "Eberson Guachizaca",
+        "fecha": "2012-08-08",
+        "monto": 200,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1105526436"
+    },
+    {
+        "id": 7,
+        "usuario": "Santos Jesus",
         "fecha": "2005-02-28",
         "monto": 200,
         "tipoRUC": "PROFESIONAL",
         "RUC": "1105526436"
+    },
+    {
+        "id": 8,
+        "usuario": "Sara Coronel",
+        "fecha": "2005-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
+    }
+    ,
+    {
+        "id": 9,
+        "usuario": "Jose Guaman",
+        "fecha": "2003-02-28",
+        "monto": 200,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1105526436"
+    },
+    {
+        "id": 10,
+        "usuario": "Bradley Poma",
+        "fecha": "2008-10-10",
+        "monto": 100,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567890001"
+    },
+    {
+        "id": 11,
+        "usuario": "Carlos Gutierrez",
+        "fecha": "2023-01-15",
+        "monto": 450.75,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567891"
+    },
+    {
+        "id": 12,
+        "usuario": "Mariana Lopez",
+        "fecha": "2022-06-25",
+        "monto": 780.50,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "0987654321"
+    },
+    {
+        "id": 13,
+        "usuario": "Gabriel Torres",
+        "fecha": "2023-03-30",
+        "monto": 620.40,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "1234567892"
+    },
+    {
+        "id": 14,
+        "usuario": "Lucia Perez",
+        "fecha": "2022-09-19",
+        "monto": 910.80,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "1122334455"
+    },
+    {
+        "id": 15,
+        "usuario": "Roberto Gomez",
+        "fecha": "2021-12-02",
+        "monto": 300.60,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "9988776655"
+    },
+    {
+        "id": 16,
+        "usuario": "Ana Salazar",
+        "fecha": "2023-05-20",
+        "monto": 560.95,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "7766554433"
+    },
+    {
+        "id": 17,
+        "usuario": "David Herrera",
+        "fecha": "2022-11-18",
+        "monto": 430.25,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "4455667788"
+    },
+    {
+        "id": 18,
+        "usuario": "Paula Fernandez",
+        "fecha": "2023-02-05",
+        "monto": 240.35,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "5566778899"
+    },
+    {
+        "id": 19,
+        "usuario": "Juan Castillo",
+        "fecha": "2021-07-22",
+        "monto": 720.90,
+        "tipoRUC": "EDUCATIVO",
+        "RUC": "3344556677"
+    },
+    {
+        "id": 20,
+        "usuario": "Isabel Vega",
+        "fecha": "2023-04-10",
+        "monto": 850.15,
+        "tipoRUC": "PROFESIONAL",
+        "RUC": "6677889900"
     }
 ]

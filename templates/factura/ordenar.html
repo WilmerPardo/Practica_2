@@ -50,12 +50,12 @@
         <tbody>
             {% for item in lista %}
             <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.usuario }}</td>
-                <td>{{ item.fecha }}</td>
-                <td>{{ item.monto }}</td>
-                <td>{{ item.tipoRUC }}</td>
-                <td>{{ item.RUC }}</td>
+                <td>{{ item._id }}</td>
+                <td>{{ item._usuario }}</td>
+                <td>{{ item._fecha }}</td>
+                <td>{{ item._monto }}</td>
+                <td>{{ item._tipoRUC }}</td>
+                <td>{{ item._RUC }}</td>
                 <td><a href="/facturas/editar/{{ item.id }}" class="btn btn-info">MODIFICAR</a></td>
             </tr>
             {% endfor %}

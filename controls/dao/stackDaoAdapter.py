@@ -4,7 +4,7 @@ import os, json
 T = TypeVar("T")
 class StackDaoAdapter(Generic[T]):
     atype: T
-    def __init__(self, atype: T, size = 20):
+    def __init__(self, atype: T, size = 40):
         self.atype = atype
         self.lista = Stack(size)
         self.file = atype.__name__.lower() + ".json"

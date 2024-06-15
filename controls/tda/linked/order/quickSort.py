@@ -1,15 +1,5 @@
 import random
-
 class QuickSort:
-    """ def sort_primitive_ascendent(self, array):
-        if len(array) <= 1:
-            return array
-        else:
-            pivot = array[random.randint(0, len(array) - 1)]
-            less = [i for i in array[1:] if i <= pivot]
-            greater = [i for i in array[1:] if i > pivot]
-            return self.sort_primitive_ascendent(less) + [pivot] + self.sort_primitive_ascendent(greater) """
-    
     def sort_primitive_ascendent(self, array):
         if len(array) <= 1:
             return array

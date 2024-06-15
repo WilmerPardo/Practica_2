@@ -1,8 +1,5 @@
-from controls.tda.linked.order.quickSort import QuickSort
 class Binary:
     def binary_primitive(self, array, data, low, high):
-        #order = QuickSort()
-        #array = order.sort_primitive_ascendent(array)
         if low > high:
             print("Valor no encontrado en la lista")
             return -1
@@ -16,9 +13,6 @@ class Binary:
         elif array[mid+1] == data:
             print(f"Valor encontrado en la posicion: {mid+1}")
             return mid+1   
-        #result = self.check_data(array, data, mid)
-        #if result is not None:
-            #return result
         elif array[mid] < data:
             return self.binary_primitive(array, data, mid + 1, high)
         else:
@@ -124,12 +118,15 @@ class Binary:
         if (getattr(array[mid], attribute)) == (element):
             print(f"Valor encontrado en la posicion: {mid}")
             print(array[mid])
+            return array[mid]
         elif mid > 0 and (getattr(array[mid-1], attribute)) == (element):
             print(f"Valor encontrado en la posicion +1: {mid-1}")
             print(array[mid-1])
+            return array[mid-1]
         elif mid < len(array) - 1 and (getattr(array[mid+1], attribute)) == (element):
             print(f"Valor encontrado en la posicion -1: {mid+1}")
             print(array[mid+1])
+            return array[mid+1]
         elif (getattr(array[mid], attribute)) < (element):
             return self.search_binary_models_string(array, (element), attribute, mid + 1, high)
         else:

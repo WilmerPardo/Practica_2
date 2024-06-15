@@ -16,6 +16,7 @@ def ver_facturas():
     return render_template('factura/listaFacturas.html', lista = factura.to_dic())
 
 
+
 @router.route('/historial')
 def lista_historial():
     retencion = RetencionDaoControl()
@@ -41,7 +42,7 @@ def guardar_factura():
     factura = FacturaDaoControl()
     factura._factura._usuario = request.form['usuario']
     factura._factura._fecha = request.form['fecha']
-    factura._factura._monto = request.form['monto']
+    factura._factura._monto = float(request.form['monto'])
     factura._factura._tipoRUC = request.form['tipoRUC']
     factura._factura._RUC = request.form['RUC']
     factura.save
@@ -82,3 +83,55 @@ def modificar_personas():
     #pd._persona._tipoIdentificacion = data['tipo']
     fd.merge(int(pos))
     return redirect("/historial/facturas/ver", code=302)
+
+#ordenar facturas
+@router.route('/historial/ordenar')
+def ordenar_historial():
+    campo_orden = request.args.get('campo', default='_fecha', type=str)
+    direccion = request.args.get('direccion', default=1, type=int)
+    algoritmo = request.args.get('algoritmo', default=1, type=int)
+    factura = FacturaDaoControl()
+    linked_list = factura._list().sort_models(campo_orden, direccion, algoritmo)
+    lista_ordenada = linked_list.toArray
+    #print(lista_ordenada)
+
+    return render_template('factura/ordenar.html', lista=lista_ordenada)
+
+#buscar facturas
+@router.route('/historial/buscar', methods=['GET', 'POST'])
+def buscar_factura():
+    if request.method == 'POST':
+        data = request.form
+        campo = data['select-campo'] #request.form.get('select-campo')
+        valor = data['input-campo']
+        if campo == '_monto':
+            valor = float(valor)
+        fact = FacturaDaoControl()
+
+        if campo == '_tipoRUC':
+            valor = valor.upper()
+
+        if campo == '_RUC':
+            factura = fact._list().binary_search_models(valor, campo,2)
+            facturas1 = [factura]
+            print((facturas1)== None)
+            #facturas1 = [factura]#print(facturas1._length)
+        else:
+            facturas1 = fact._list().binary_models(valor, campo)
+        if campo != '_RUC':
+            if facturas1 is not None and facturas1._length > 0 :
+                mensaje = f'Facturas correspondientes a "{valor}":'
+            else:
+                if campo == '_monto':
+                    mensaje = f'No se ha encontrado facturas con el monto de "{valor}"'
+                elif campo == '_fecha':
+                    mensaje = f'No se ha encontrado facturas con la fecha de "{valor}"'
+                elif campo == '_tipoRUC':
+                    mensaje = f'Solo existe el tipo Educativo y Profesional"'
+                else: 
+                    mensaje = f'No se ha encontrado facturas con el usuario "{valor}"'
+        else:
+            mensaje = f'Facturas correspondientes a "{valor}:"'
+        return render_template('factura/buscar.html', facturas = facturas1, code=302, mensaje = mensaje)
+    else:
+        return render_template('factura/buscar.html')

@@ -1,0 +1,78 @@
+{% extends "template.html"%}
+{% block content%}
+<h2 class = "text-white" >Busqueda</h2>
+<div class="booking-form-body">
+    <div class="text-center w-100">
+        <h4 class="text-white">Cómo desea buscar?</h4>
+    </div>
+    <form method="post" action="/historial/buscar">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <select id="select-campo" name="select-campo" class="form-select" aria-label="Opciones de ordenamiento">
+                        <option value="_usuario">Usuario</option>
+                        <option value="_fecha">Fecha</option>
+                        <option value="_monto">Monto</option>
+                        <option value="_RUC">RUC</option>
+                        <option value="_tipoRUC">Tipo Ruc</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input id="input-campo" name="input-campo" type="text" class="form-control" placeholder="Wilmer Pardo" required>
+                </div>
+            </div>
+            <button class="btn btn-warning" type="submit">BUSCAR</button>
+        </div>
+    </form>
+    <h6 class="text-white">{{ mensaje }}</h6>
+    <script>
+    document.getElementById('select-campo').addEventListener('change', function() {
+        var inputCampo = document.getElementById('input-campo');
+        switch (this.value) {
+            case '_usuario':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = 'Wilmer Pardo';
+                break;
+            case '_fecha':
+                inputCampo.type = 'date';
+                inputCampo.placeholder = '';
+                break;
+            case '_monto':
+                inputCampo.type = 'number';
+                inputCampo.placeholder = '100.65';
+                break;
+            case '_RUC':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = '1103526893001';
+                break;
+            case '_tipoRUC':
+                inputCampo.type = 'text';
+                inputCampo.placeholder = 'EDUCATIVO o PROFESIONAL';
+                break;
+        }
+    });
+    </script>
+    <table id="tabla" class="table text-white">
+        <thead>
+            <th>Factura Nro</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Tipo RUC</th>
+            <th>RUC</th>
+        </thead>
+        <tbody>
+            {% for factura in facturas %}
+            <tr>
+                <td>{{ factura._id }}</td>
+                <td>{{ factura._usuario }}</td>
+                <td>{{ factura._fecha }}</td>
+                <td>{{ factura._monto }}</td>
+                <td>{{ factura._tipoRUC }}</td>
+                <td>{{ factura._RUC }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+</div>
+{% endblock %}
