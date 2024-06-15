@@ -31,7 +31,8 @@ class FacturaDaoControl(DaoAdapter):
     
     @property
     def save(self):
-        self._factura._id = self.lista._length + 1
+        lista = self._lista()
+        self._factura._id = lista._length + 1
         self._save(self._factura)
     
     def merge(self, pos):
