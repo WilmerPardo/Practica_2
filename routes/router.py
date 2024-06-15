@@ -55,6 +55,12 @@ def eliminar_historial():
     retencion.clear_all_retenciones()
     return redirect('/historial', code=302)
 
+@router.route('/facturas/eliminar/', methods =['POST'])
+def eliminar_personas():
+    fact = FacturaDaoControl()
+    pos = request.form["id"]
+    fact._delete(int(pos)-1)
+    return redirect("/historial/facturas/ver",code=302)
 
 @router.route('/historial/generar')
 def generar_retenciones():
